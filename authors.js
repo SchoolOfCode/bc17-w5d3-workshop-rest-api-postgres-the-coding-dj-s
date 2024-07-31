@@ -3,6 +3,15 @@ import { pool } from "./db/index.js";
 
 export async function getAuthors() {
   // Query the database and return all authors
+
+  // write SQL query
+  const queryText = "SELECT * FROM authors";
+
+  // use pool to use request
+  const result = await pool.query(queryText);
+
+  // return 
+  return result.rows
 }
 
 export async function getAuthorById(id) {
